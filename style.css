@@ -31,6 +31,10 @@ body {
     pointer-events: none;
 }
 
+.circle.small { width: 80px; height: 80px; }
+.circle.medium { width: 120px; height: 120px; }
+.circle.large { width: 160px; height: 160px; }
+
 @keyframes fadeOut {
     0% {
         opacity: 1;

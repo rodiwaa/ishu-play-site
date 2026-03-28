@@ -20,14 +20,28 @@ document.addEventListener('DOMContentLoaded', function() {
         circle.className = 'circle';
         circle.style.backgroundColor = color;
 
-        // Position at center with random offset
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
-        const randomX = (Math.random() - 0.5) * 100;
-        const randomY = (Math.random() - 0.5) * 100;
+        // Random size
+        const sizes = [
+            {class: 'small', size: 80},
+            {class: 'medium', size: 120},
+            {class: 'large', size: 160}
+        ];
+        const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+        circle.className = `circle ${randomSize.class}`;
+        circle.style.backgroundColor = color;
 
-        circle.style.left = `${centerX + randomX}px`;
-        circle.style.top = `${centerY + randomY}px`;
+        // Random position anywhere on screen
+        const radius = randomSize.size / 2;
+        const minX = radius;
+        const maxX = window.innerWidth - radius;
+        const minY = radius;
+        const maxY = window.innerHeight - radius;
+
+        const randomX = minX + Math.random() * (maxX - minX);
+        const randomY = minY + Math.random() * (maxY - minY);
+
+        circle.style.left = `${randomX}px`;
+        circle.style.top = `${randomY}px`;
 
         circlesContainer.appendChild(circle);
 
